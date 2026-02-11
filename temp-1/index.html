@@ -4,92 +4,108 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CA Abhishek Boddu Profile</title>
-    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --primary-blue: #2a3d8f;
         --light-bg: #fffbf2;
         --border-yellow: #fceec7;
-        --text-gray: #444;
-        --card-green: #f4f9e9;
+        --card-blue: #e3f2fd;
+        --card-green: #fafff0;
         --card-orange: #fff2e0;
+        --text-main: #2c3e50;
+        --text-light: #5c7899;
+        --impact-blue: #1565c0;
       }
 
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Inter", sans-serif;
+        background-color: #f0f2f5;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding: 20px;
+        padding: 40px 20px;
         margin: 0;
       }
 
       .container {
         width: 800px;
         background-color: white;
-        padding: 40px;
+        padding: 30px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       }
 
-      /* Header Section */
+      /* --- Header Section --- */
       .header-section {
         display: flex;
-        gap: 20px;
-        margin-bottom: 30px;
+        gap: 25px;
+        align-items: stretch;
       }
 
-      .profile-img-container {
+      .profile-wrapper {
+        flex: 0 0 320px;
+        background-color: #1a237e;
+        border-radius: 20px 20px 20px 20px;
+        position: relative;
         overflow: hidden;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
       }
 
-      .profile-img-container img {
-        width: 120%;
-        scale: 2;
+      .profile-wrapper img {
+        height: 400px;
+        display: block;
       }
 
       .info-card {
-        flex: 1.5;
+        flex: 1;
         background-color: var(--light-bg);
         border: 2px solid var(--border-yellow);
-        border-radius: 15px;
-        padding: 30px;
-        position: relative;
+        border-radius: 20px;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
       }
 
       .info-card h1 {
         color: var(--primary-blue);
         margin: 0;
-        font-size: 42px;
-        font-weight: 800;
+        font-size: 38px;
+        font-weight: 700;
       }
 
-      .info-card p.subtitle {
+      .info-card .subtitle {
         color: var(--primary-blue);
-        font-size: 22px;
-        margin: 5px 0 20px 0;
+        font-size: 18px;
+        margin: 8px 0 15px 0;
       }
 
       .divider {
         height: 2px;
         background-color: var(--border-yellow);
-        margin-bottom: 20px;
+        margin-bottom: 15px;
       }
 
       .info-list {
         list-style: none;
         padding: 0;
-        margin: 0 0 30px 0;
+        margin: 0 0 20px 0;
       }
 
       .info-list li {
         position: relative;
-        padding-left: 25px;
-        margin-bottom: 12px;
+        padding-left: 20px;
+        margin-bottom: 8px;
         color: var(--primary-blue);
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 500;
       }
 
@@ -97,194 +113,160 @@
         content: "•";
         position: absolute;
         left: 0;
-        font-size: 24px;
+        font-weight: bold;
       }
 
+      /* --- Social Links --- */
       .social-links {
+        margin-top: auto;
         display: flex;
         align-items: center;
-        gap: 15px;
+        gap: 12px;
       }
 
       .social-icon {
-        width: 40px;
-        height: 40px;
-        border-radius: 8px;
+        width: 34px;
+        height: 34px;
+        border-radius: 6px;
+        transition: transform 0.2s;
+      }
+
+      .social-icon:hover {
+        transform: scale(1.1);
       }
 
       .website-url {
         margin-left: auto;
         color: var(--primary-blue);
         text-decoration: none;
-        font-size: 20px;
-        font-weight: 500;
+        font-size: 16px;
+        font-weight: 600;
       }
 
-      /* Bio Section */
+      /* --- Content Blocks --- */
       .bio-box {
-        border: 1px solid #90caf9;
-        background-color: #e3f2fd;
-        border-radius: 15px;
-        height: 250px;
-        margin-bottom: 30px;
-        padding: 20px;
-        color: #5c7899;
-        font-size: 18px;
-      }
-
-      /* Roles Section */
-      .roles-container {
-        background-color: #fafff0;
-        border: 1px solid #c5e1a5;
+        background-color: var(--card-blue);
+        border: 1px solid #bbdefb;
         border-radius: 15px;
         padding: 20px;
-        margin-bottom: 30px;
-        text-align: center;
+        color: var(--text-light);
+        min-height: 300px;
+        margin-top: 25px;
       }
 
       .section-title {
-        color: #33691e;
-        font-weight: bold;
-        font-size: 22px;
-        margin-bottom: 25px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 18px;
         text-transform: uppercase;
+        margin-bottom: 25px;
+      }
+
+      /* --- Roles Grid --- */
+      .roles-container {
+        background-color: var(--card-green);
+        border: 1px solid #c5e1a5;
+        border-radius: 15px;
+        padding: 25px;
+        margin-top: 25px;
       }
 
       .roles-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
+        text-align: center;
       }
 
-      .role-item h3 {
-        color: #1b5e20;
-        margin: 10px 0;
-        font-size: 20px;
-      }
-
-      .role-item p {
-        font-size: 14px;
-        color: #33691e;
-        line-height: 1.4;
-        padding: 0 10px;
-      }
-
-      .icon-placeholder {
-        font-size: 40px;
+      .role-item img {
+        width: 50px;
         margin-bottom: 10px;
       }
-
-      /* Brands Section */
-      .brands-container {
-        background-color: var(--card-orange);
-        border: 1px solid #ffcc80;
-        border-radius: 15px;
-        padding: 20px;
-        height: 150px;
+      .role-item h3 {
+        font-size: 16px;
+        color: #1b5e20;
+        margin: 5px 0;
+      }
+      .role-item p {
+        font-size: 13px;
+        color: #33691e;
+        line-height: 1.4;
       }
 
-      .brands-title {
-        color: #bf360c;
-        text-align: center;
-        font-weight: bold;
-        font-size: 22px;
-        margin-bottom: 20px;
-        text-transform: uppercase;
+      /* --- Brands Section --- */
+      .brands-container {
+        background-color: var(--card-orange);
+        border: 1px solid #ffe0b2;
+        border-radius: 15px;
+        padding: 20px;
+        margin-top: 25px;
       }
 
       .brand-logos {
         display: flex;
-        gap: 20px;
-        padding-left: 20px;
+        gap: 15px;
+        justify-content: flex-start;
       }
 
-      .brand-circle {
-        width: 80px;
-        height: 80px;
-        background: #222;
-        border-radius: 50%;
+      .brand-item {
+        width: 70px;
+        height: 70px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
-        font-size: 10px;
         font-weight: bold;
+        font-size: 10px;
+        color: white;
         text-align: center;
-      }
-
-      .brand-square {
-        width: 80px;
-        height: 80px;
-        background: #e53935;
         border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 10px;
-        font-weight: bold;
-        text-align: center;
       }
 
+      /* --- Impact Section --- */
       .impact-container {
-        background-color: #f0f7ff;
+        background-color: var(--card-blue);
         border: 1px solid #bbdefb;
         border-radius: 15px;
         padding: 25px;
-        margin-bottom: 25px;
-      }
-
-      .impact-title {
-        color: #1565c0;
-        margin-top: 0;
       }
 
       .impact-item {
         display: flex;
-        align-items: flex-start;
         gap: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
       }
 
-      .impact-content {
-        font-size: 16px;
-        color: #2c3e50;
-        line-height: 1.4;
+      .impact-icon {
+        font-size: 24px;
+      }
+      .impact-text {
+        font-size: 15px;
+        color: var(--text-main);
+        line-height: 1.5;
+      }
+      .impact-text strong {
+        color: var(--impact-blue);
+      }
+      .impact-text span {
+        color: var(--impact-blue);
+        font-weight: 700;
       }
 
-      .impact-content strong {
-        color: #1565c0;
-      }
-
-      .impact-content span {
-        color: #1565c0;
-        font-weight: bold;
-      }
-
-      /* Awards Section */
+      /* --- Awards --- */
       .awards-container {
-        background-color: #fafff0;
+        background-color: var(--card-green);
         border: 1px solid #c5e1a5;
         border-radius: 15px;
         padding: 25px;
-        margin-bottom: 25px;
-      }
-
-      .awards-header {
-        color: #33691e;
-      }
-
-      .awards-list {
-        list-style: none;
-        padding: 0;
+        margin-top: 25px;
       }
 
       .awards-list li {
-        position: relative;
-        padding-left: 20px;
-        margin-bottom: 10px;
-        font-size: 16px;
+        font-size: 15px;
         color: #2e7d32;
+        margin-bottom: 10px;
+        list-style-type: none;
+        padding-left: 15px;
+        position: relative;
       }
 
       .awards-list li::before {
@@ -294,77 +276,66 @@
         font-weight: bold;
       }
 
-      /* Speaker Section */
+      /* --- Speaker Section --- */
       .speaker-container {
         border: 1px solid #ffe0b2;
         border-radius: 15px;
         padding: 25px;
-        margin-bottom: 25px;
+        margin-top: 25px;
       }
 
-      .speaker-title {
-        color: #e65100;
-        text-align: center;
-        font-size: 20px;
-        text-transform: uppercase;
-        margin-bottom: 25px;
-      }
-
-      .speaker-logos,
-      .speaker-logos-bottom {
+      .speaker-logos {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-        margin-bottom: 20px;
+        gap: 30px;
       }
 
       .speaker-logos img {
         max-width: 100%;
       }
 
-      .logo-box {
-        font-weight: bold;
-        color: #555;
-        opacity: 0.8;
-      }
-
-      /* Footer Bio */
-      .footer-bio {
-        background-color: #fff3e0;
+      /* --- Footer --- */
+      .footer-text {
+        background-color: var(--card-orange);
         border-radius: 15px;
         padding: 20px;
         color: #bf360c;
-        font-size: 15px;
-        line-height: 1.5;
-        margin-bottom: 25px;
+        font-size: 14px;
         text-align: center;
+        margin-top: 25px;
       }
 
-      /* Contact Footer */
       .contact-footer {
+        display: flex;
+        justify-content: space-around;
         border: 2px solid #ce93d8;
         border-radius: 15px;
         padding: 20px;
-        display: flex;
-        justify-content: space-around;
-        color: #4a148c;
-        font-weight: 500;
+        margin-top: 25px;
+        text-align: center;
       }
 
-      .contact-item {
+      .contact-unit {
         display: flex;
+        flex-direction: column;
         align-items: center;
         gap: 8px;
+        color: #4a148c;
+        font-weight: 600;
+      }
+
+      .contact-unit img {
+        width: 28px;
       }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="header-section">
-        <div class="profile-img-container">
-          <img src="https://i.imgur.com/rkNY6p5.png" alt="CA Abhishek Boddu" />
+        <div class="profile-wrapper">
+          <img src="./assets/profile.png" alt="CA Abhishek Boddu" />
         </div>
         <div class="info-card">
           <h1>CA Abhishek Boddu</h1>
@@ -376,10 +347,24 @@
             <li>Growth Trainer - GrowthClub</li>
           </ul>
           <div class="social-links">
-            <div class="social-icon" style="background-color: #0077b5"></div>
-            <div class="social-icon" style="background-color: #e4405f"></div>
-            <div class="social-icon" style="background-color: #1877f2"></div>
-            <a href="#" class="website-url">www.digitalconnect.in</a>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                class="social-icon"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                class="social-icon"
+            /></a>
+            <a href="#"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                class="social-icon"
+            /></a>
+            <a href="http://www.digitalconnect.in" class="website-url"
+              >www.digitalconnect.in</a
+            >
           </div>
         </div>
       </div>
@@ -387,17 +372,23 @@
       <div class="bio-box">writing all about abhishek boddu</div>
 
       <div class="roles-container">
-        <div class="section-title">Key Roles and Expertise</div>
+        <div class="section-title" style="color: #33691e">
+          Key Roles and Expertise
+        </div>
         <div class="roles-grid">
           <div class="role-item">
-            <div class="icon-placeholder">📢</div>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1998/1998087.png"
+            />
             <h3>Digital Marketing</h3>
             <p>
               Helping Startups and Businesses to scale their digital presence
             </p>
           </div>
           <div class="role-item">
-            <div class="icon-placeholder">📈</div>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2620/2620667.png"
+            />
             <h3>Branding & Consulting</h3>
             <p>
               Tailored PR and Branding Strategies to scale business across
@@ -405,7 +396,9 @@
             </p>
           </div>
           <div class="role-item">
-            <div class="icon-placeholder">🕸️</div>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png"
+            />
             <h3>GTM Strategies</h3>
             <p>
               Scaling strategies across industries. Automating Lead Generation
@@ -415,22 +408,31 @@
       </div>
 
       <div class="brands-container">
-        <div class="brands-title">Brands Worked</div>
+        <div
+          class="section-title"
+          style="color: #bf360c; text-align: left; margin-left: 10px"
+        >
+          Brands Worked
+        </div>
         <div class="brand-logos">
-          <div class="brand-circle">T WORKS</div>
-          <div class="brand-square">STARTUP<br />utsav</div>
+          <div class="brand-item" style="background: #222; border-radius: 50%">
+            T WORKS
+          </div>
+          <div class="brand-item" style="background: #e53935">
+            STARTUP<br />utsav
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Second section -->
-
     <div class="container">
       <div class="impact-container">
-        <h2 class="section-title impact-title">Impact and Outreach</h2>
+        <div class="section-title" style="color: #1565c0">
+          Impact and Outreach
+        </div>
         <div class="impact-item">
           <div class="impact-icon">👥</div>
-          <div class="impact-content">
+          <div class="impact-text">
             <strong>Public Speaking & Training:</strong> Reached over
             <span>40,000 individuals</span> through talks, digital marketing,
             and literacy programs
@@ -438,28 +440,22 @@
         </div>
         <div class="impact-item">
           <div class="impact-icon">🌐</div>
-          <div class="impact-content">
+          <div class="impact-text">
             <strong>Manovignanayatra (2022):</strong> Traveled across 30
-            districts in AP & TS raising awareness about digital marketing and
-            self-employment, Cyber Security
+            districts in AP & TS raising awareness about digital marketing,
+            self-employment, and Cyber Security
             <span>(Impacting 50,000+ People)</span>
-          </div>
-        </div>
-        <div class="impact-item">
-          <div class="impact-icon">📢</div>
-          <div class="impact-content">
-            <strong>Digital Villages Creator:</strong> Promoted digital literacy
-            in Telangana districts (Adilabad, Karimnagar, Yadadri, Rangareddy)
           </div>
         </div>
       </div>
 
       <div class="awards-container">
-        <h2 class="section-title awards-header">Awards and Recognition</h2>
+        <div class="section-title" style="color: #33691e">
+          Awards and Recognition
+        </div>
         <ul class="awards-list">
           <li>
-            <strong>Pride of Hyderabad 2023 :</strong> By Government of
-            Telangana
+            <strong>Pride of Hyderabad 2023:</strong> By Government of Telangana
           </li>
           <li>
             <strong>Rashtriya Gaurav Award (2019):</strong> By Government of
@@ -467,42 +463,39 @@
           </li>
           <li>
             <strong>Swami Vivekananda Young Achiever Award (2019):</strong> By
-            CMR Group of Institutions
-          </li>
-          <li>
-            <strong>100K Digithon Champion (2017):</strong> By Digital Telangana
-            & TITA
-          </li>
-          <li>
-            <strong>Best Leadership Award (2017):</strong> By Yuvathirang &
-            UNESCO
+            CMR Group
           </li>
         </ul>
       </div>
 
       <div class="speaker-container">
-        <h2 class="speaker-title">
-          Keynote Speaker / Sessions at Prestigious Institutions
-        </h2>
+        <div class="section-title" style="color: #e65100">
+          Keynote Speaker / Sessions
+        </div>
         <div class="speaker-logos">
-          <img
-            src="https://i.imgur.com/ZXbCS2V.png./assets/logos.png"
-            alt="logo"
-          />
+          <img src="./assets/speaker-at.png" />
         </div>
       </div>
 
-      <div class="footer-bio">
+      <div class="footer-text">
         With core expertise in Digital Marketing, Business Growth Strategies,
         Digital PR, Partnerships and Synergies, and GTM Strategies, Nikeelu
-        Gunda remains a leading figure in the startup ecosystem, helping
-        businesses unlock their full potential in the digital era.
+        Gunda remains a leading figure in the startup ecosystem.
       </div>
 
       <div class="contact-footer">
-        <div class="contact-item">📱 +91 79893 73839</div>
-        <div class="contact-item">✉️ nikeelu@digitalconnect.in</div>
-        <div class="contact-item">🌐 www.digitalconnect.in</div>
+        <div class="contact-unit">
+          <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" />
+          +91 79893 73839
+        </div>
+        <div class="contact-unit">
+          <img src="https://cdn-icons-png.flaticon.com/512/542/542689.png" />
+          nikeelu@digitalconnect.in
+        </div>
+        <div class="contact-unit">
+          <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" />
+          www.digitalconnect.in
+        </div>
       </div>
     </div>
   </body>

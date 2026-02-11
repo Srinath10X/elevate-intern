@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Profile Card</title>
+    <style>
+      :root {
+        --bg-grid: #f0f0f0;
+        --line-color: #e0e0e0;
+        --bio-yellow: #fdfd96;
+        --about-green: #c1f0e0;
+        --likes-pink: #f5c7f7;
+        --dislikes-purple: #d1d1f0;
+        --goal-orange: #f5e1c8;
+        --shadow: 4px 4px 0px #000;
+      }
+
+      body {
+        background-color: var(--bg-grid);
+        background-image:
+          linear-gradient(var(--line-color) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
+        background-size: 20px 20px;
+        font-family: "Comic Sans MS", "Chalkboard SE", cursive;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        margin: 0;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 500px;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 15px;
+      }
+
+      /* Reusable Card Style */
+      .card {
+        background: white;
+        border: 2px solid #000;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        position: relative;
+        padding: 10px;
+        margin-top: 15px;
+      }
+
+      .label {
+        position: absolute;
+        top: -12px;
+        left: 15px;
+        border: 2px solid #000;
+        padding: 2px 15px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      /* Specific Sections */
+      .photo-box {
+        grid-column: 1;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        cursor: pointer;
+        background: #fff;
+      }
+
+      .photo-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .bio-card {
+        grid-column: 2;
+        background-color: var(--bio-yellow);
+      }
+
+      .about-card {
+        grid-column: 1 / span 2;
+        background-color: var(--about-green);
+        min-height: 80px;
+      }
+
+      .likes-card {
+        grid-column: 1;
+        background-color: var(--likes-pink);
+        min-height: 100px;
+      }
+
+      .dislikes-card {
+        grid-column: 1;
+        background-color: var(--dislikes-purple);
+        min-height: 100px;
+      }
+
+      .goal-card {
+        grid-column: 2;
+        grid-row: span 2;
+        background-color: var(--goal-orange);
+      }
+
+      /* Editable Areas */
+      .content-area {
+        width: 100%;
+        height: 90%;
+        border: none;
+        background: transparent;
+        font-family: inherit;
+        resize: none;
+        outline: none;
+        margin-top: 10px;
+      }
+
+      .bio-line {
+        border-bottom: 1px dashed #666;
+        margin-bottom: 8px;
+        font-size: 0.75rem;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .bio-line input {
+        border: none;
+        background: transparent;
+        width: 60%;
+        font-family: inherit;
+        outline: none;
+      }
+
+      #fileInput {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="card photo-box"
+        onclick="document.getElementById('fileInput').click()"
+      >
+        <img
+          id="profilePic"
+          src="https://via.placeholder.com/200x250?text=Click+to+Upload"
+          alt="Profile"
+        />
+        <input type="file" id="fileInput" accept="image/*" />
+      </div>
+
+      <div class="card bio-card">
+        <div class="label" style="background: var(--bio-yellow)">My Bio:</div>
+        <div class="bio-line">Name: <input type="text" /></div>
+        <div class="bio-line">Date of Birth: <input type="text" /></div>
+        <div class="bio-line">Zodiac Sign: <input type="text" /></div>
+        <div style="display: flex; gap: 5px">
+          <div class="bio-line" style="width: 50%">
+            Wt: <input type="text" />
+          </div>
+          <div class="bio-line" style="width: 50%">
+            Ht: <input type="text" />
+          </div>
+        </div>
+      </div>
+
+      <div class="card about-card">
+        <div class="label" style="background: var(--about-green)">
+          About Me:
+        </div>
+        <textarea
+          class="content-area"
+          placeholder="Write something..."
+        ></textarea>
+      </div>
+
+      <div class="card likes-card">
+        <div class="label" style="background: var(--likes-pink)">Likes:</div>
+        <textarea class="content-area"></textarea>
+      </div>
+
+      <div class="card goal-card">
+        <div class="label" style="background: var(--goal-orange)">
+          My Goal this Year:
+        </div>
+        <textarea class="content-area"></textarea>
+      </div>
+
+      <div class="card dislikes-card">
+        <div class="label" style="background: var(--dislikes-purple)">
+          Dislikes:
+        </div>
+        <textarea class="content-area"></textarea>
+      </div>
+    </div>
+
+    <script>
+      // Handle Image Upload
+      const fileInput = document.getElementById("fileInput");
+      const profilePic = document.getElementById("profilePic");
+
+      fileInput.addEventListener("change", function () {
+        const file = this.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            profilePic.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+  </body>
+</html>
+
