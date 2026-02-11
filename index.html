@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template Portfolio | 40+ Designs</title>
+    <style>
+      :root {
+        --primary: #2563eb;
+        --bg: #f8fafc;
+        --text: #1e293b;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        text-align: center;
+        padding: 4rem 1rem;
+        background: white;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .container {
+        display: grid;
+        place-items: center;
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .template-grid {
+        display: grid;
+        place-items: center;
+        max-width: 400px;
+        gap: 2rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .thumbnail {
+        width: 100%;
+        height: 180px;
+        background: #cbd5e1; /* Placeholder color */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #64748b;
+      }
+
+      .content {
+        padding: 1.25rem;
+      }
+
+      .content h3 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background: var(--primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Templates</h1>
+    </header>
+
+    <div class="container">
+      <div class="template-grid" id="grid"></div>
+    </div>
+
+    <script>
+      const grid = document.getElementById("grid");
+
+      for (let i = 1; i <= 1; i++) {
+        grid.innerHTML += `
+            <div class="card">
+                <div class="thumbnail">Preview Image ${i}</div>
+                <div class="content">
+                    <h3>Template Name ${i}</h3>
+                    <p>Brief description of page style.</p>
+										<a href="/temp-${i}" class="btn">View Live Demo</a>
+                </div>
+            </div>
+        `;
+      }
+    </script>
+  </body>
+</html>
